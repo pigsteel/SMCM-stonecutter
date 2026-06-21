@@ -1,0 +1,60 @@
+package com.github.pigsteel.smcm.neoforge;
+
+import com.github.pigsteel.smcm.SMCM;
+import com.github.pigsteel.smcm.entity.skeleton.SunkenVariant;
+import com.github.pigsteel.smcm.registry.SMCMNeoForgeRegistries;
+import com.github.pigsteel.smcm.registry.SMCMNeoForgeItemGroups;
+import com.github.pigsteel.smcm.registry.SMCMNeoForgeSpawnPlacements;
+import com.github.pigsteel.smcm.registry.smcm$Registries;
+import com.github.pigsteel.smcm.services.*;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
+import net.neoforged.neoforge.registries.DataPackRegistryEvent;
+
+@Mod(SMCM.MOD_ID)
+public class SMCMNeoForge {
+
+    public SMCMNeoForge(IEventBus eventBus) {
+
+        // This method is invoked by the NeoForge mod loader when it is ready
+        // to load your mod. You can access NeoForge and Common code in this
+        // project.
+
+        // Use NeoForge to bootstrap the Common mod.
+        SMCM.init();
+
+        eventBus.addListener(SMCMNeoForgeRegistries::registerDatapackRegistries);
+        eventBus.addListener(SMCMNeoForge::onEntityAttributeCreation);
+        eventBus.addListener(SMCMNeoForgeSpawnPlacements::registerSpawnPlacements);
+        eventBus.addListener(SMCMNeoForgeItemGroups::modifyCreativeTabs);
+
+        eventBus.addListener(SMCMNeoForgeDatagen::onGatherClientData);
+        eventBus.addListener(SMCMNeoForgeDatagen::onGatherServerData);
+
+        NeoForgeAttachmentRegistryHelper.ATTACHMENT_TYPES.register(eventBus);
+        NeoForgeRegistryHelper.register(eventBus);
+    }
+
+    private static void onEntityAttributeCreation(EntityAttributeCreationEvent event) {
+        Services.ATTRIBUTES.applyEntityAttributeRegistrations(new IAttributeRegistryHelper.EntityAttributeRegistrar() {
+            @Override
+            public <T extends LivingEntity> void register(EntityType<T> entityType, AttributeSupplier.Builder builder) {
+                event.put(entityType, builder.build());
+            }
+        });
+    }
+
+    @SubscribeEvent
+    public static void registerDatapackRegistries(DataPackRegistryEvent.NewRegistry event) {
+        event.dataPackRegistry(
+                smcm$Registries.SUNKEN_VARIANT,
+                SunkenVariant.DIRECT_CODEC,
+                SunkenVariant.NETWORK_CODEC
+        );
+    }
+}

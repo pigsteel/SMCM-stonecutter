@@ -1,7 +1,7 @@
 package com.github.pigsteel.smcm.fabric.datagen;
 
 //? fabric  {
-/*import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
+import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 
@@ -13,4 +13,4 @@ public class FabricDataGeneratorEntrypoint implements DataGeneratorEntrypoint {
     }
 
 }
-*///?}
+//?}

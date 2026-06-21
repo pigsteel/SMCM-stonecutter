@@ -1,7 +1,7 @@
 package com.github.pigsteel.smcm.neoforge;
 
 //? neoforge {
-import com.github.pigsteel.smcm.SMCM;
+/*import com.github.pigsteel.smcm.SMCM;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -24,4 +24,4 @@ public class NeoforgeEntrypoint {
     }
 
 }
-//?}
+*///?}

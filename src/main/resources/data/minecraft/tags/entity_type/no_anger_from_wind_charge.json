@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "smcm:reclaimed",
+    "smcm:frostbitten",
+    "smcm:sunken",
+    "smcm:lost"
+  ]
+}

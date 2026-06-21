@@ -1,7 +1,7 @@
 package com.github.pigsteel.smcm.neoforge;
 
 //? neoforge {
-import com.github.pigsteel.smcm.Platform;
+/*import com.github.pigsteel.smcm.Platform;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.loading.FMLEnvironment;
 import net.neoforged.fml.loading.FMLPaths;
@@ -31,4 +31,4 @@ public class NeoForgePlatformImpl implements Platform {
     }
 
 }
-//?}
+*///?}

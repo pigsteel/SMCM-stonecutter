@@ -1,12 +1,20 @@
 {
-  "package": "com.github.pigsteel.smcm.mixin",
   "required": true,
   "minVersion": "0.8",
-  "compatibilityLevel": "JAVA_21",
+  "package": "com.github.pigsteel.smcm.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "EntityZombieCanFreezeMixin",
+    "SnowballHitMixin",
+    "ZombieFrostbittenConversionMixin"
+  ],
+  "client": [
+    "ZombieFrostbittenConversionRendererMixin",
+    "AgeableMobRendererIgnoreSunkenMixin"
+  ],
+  "server": [],
   "injectors": {
     "defaultRequire": 1
-  },
-  "mixins": [
-  ],
-  "client": []
+  }
 }
+
