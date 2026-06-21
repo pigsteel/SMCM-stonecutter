@@ -1,14 +1,14 @@
-package com.example.examplemod.fabric;
+package com.github.pigsteel.smcm.fabric;
 
 //? fabric  {
-/*import com.example.examplemod.ModTemplate;
+/*import com.github.pigsteel.smcm.SMCM;
 import net.fabricmc.api.ClientModInitializer;
 
 public class FabricClientEntrypoint implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        ModTemplate.LOG.info("Initializing {} Client", ModTemplate.MOD_ID);
+        SMCM.LOG.info("Initializing {} Client", SMCM.MOD_ID);
     }
 
 }

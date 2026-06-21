@@ -1,10 +1,10 @@
-package com.example.examplemod;
+package com.github.pigsteel.smcm;
 
 //? fabric  {
-/*import com.example.examplemod.fabric.FabricPlatformImpl;
+/*import com.github.pigsteel.smcm.fabric.FabricPlatformImpl;
 *///?}
 //? neoforge {
-import com.example.examplemod.neoforge.NeoForgePlatformImpl;
+import com.github.pigsteel.smcm.neoforge.NeoForgePlatformImpl;
 //?}
 import java.nio.file.Path;
 

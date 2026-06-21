@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "id": "examplemod",
+  "id": "smcm",
   "version": "${version}",
   "name": "${mod_name}",
   "description": "${mod_description}",
   "authors": [
-    "You!"
+    "pigsteel"
   ],
   "contact": {
     "sources": "",
@@ -16,17 +16,17 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.example.examplemod.fabric.FabricEntrypoint"
+      "com.github.pigsteel.smcm.fabric.FabricEntrypoint"
     ],
     "client": [
-      "com.example.examplemod.fabric.FabricClientEntrypoint"
+      "com.github.pigsteel.smcm.fabric.FabricClientEntrypoint"
     ],
     "fabric-datagen": [
-      "com.example.examplemod.fabric.datagen.FabricDataGeneratorEntrypoint"
+      "com.github.pigsteel.smcm.fabric.datagen.FabricDataGeneratorEntrypoint"
     ]
   },
   "mixins": [
-    "examplemod.mixins.json"
+    "smcm.mixins.json"
   ],
   "depends": {
     "fabric-api": "*",

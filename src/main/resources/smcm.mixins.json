@@ -1,5 +1,5 @@
 {
-  "package": "com.example.examplemod.mixin",
+  "package": "com.github.pigsteel.smcm.mixin",
   "required": true,
   "minVersion": "0.8",
   "compatibilityLevel": "JAVA_21",
@@ -7,7 +7,6 @@
     "defaultRequire": 1
   },
   "mixins": [
-    "ExampleMixin"
   ],
   "client": []
 }

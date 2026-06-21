@@ -3,30 +3,30 @@ loaderVersion = "[2,)"
 license="${mod_license}"
 
 [[mods]]
-modId = "examplemod"
+modId = "smcm"
 displayName = "${mod_name}"
 version = "${version}"
 displayURL = ""
 logoFile = "assets/icon.png"
-authors = "cassiancc"
+authors = "pigsteel"
 description='''${mod_description}'''
 
 [[mixins]]
-config = "examplemod.mixins.json"
+config = "smcm.mixins.json"
 
-[[dependencies.examplemod]]
+[[dependencies.smcm]]
 modId = "neoforge"
 type = "required"
 versionRange = "[21.1.181,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.examplemod]]
+[[dependencies.smcm]]
 modId = "minecraft"
 type = "required"
 versionRange = "${minecraft}"
 
-[[dependencies.examplemod]]
+[[dependencies.smcm]]
 modId="minecraft"
 type="required"
 versionRange="${minecraft}"

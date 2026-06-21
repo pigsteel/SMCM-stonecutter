@@ -1,4 +1,4 @@
-package com.example.examplemod.fabric.datagen;
+package com.github.pigsteel.smcm.fabric.datagen;
 
 //? fabric  {
 /*import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
@@ -10,7 +10,6 @@ public class FabricDataGeneratorEntrypoint implements DataGeneratorEntrypoint {
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator generator) {
         final FabricDataGenerator.Pack pack = generator.createPack();
-        pack.addProvider((FabricDataOutput output) -> new ModRecipeProvider(output, generator.getRegistries())); // sample_content
     }
 
 }

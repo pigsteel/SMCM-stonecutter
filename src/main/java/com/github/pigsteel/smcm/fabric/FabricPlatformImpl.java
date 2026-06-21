@@ -1,7 +1,7 @@
-package com.example.examplemod.fabric;
+package com.github.pigsteel.smcm.fabric;
 
 //? fabric  {
-/*import com.example.examplemod.Platform;
+/*import com.github.pigsteel.smcm.Platform;
 import net.fabricmc.loader.api.FabricLoader;
 
 import java.nio.file.Path;
