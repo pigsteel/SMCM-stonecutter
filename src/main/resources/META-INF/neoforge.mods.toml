@@ -1,0 +1,34 @@
+modLoader = "javafml"
+loaderVersion = "[2,)"
+license="${mod_license}"
+
+[[mods]]
+modId = "examplemod"
+displayName = "${mod_name}"
+version = "${version}"
+displayURL = ""
+logoFile = "assets/icon.png"
+authors = "cassiancc"
+description='''${mod_description}'''
+
+[[mixins]]
+config = "examplemod.mixins.json"
+
+[[dependencies.examplemod]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1.181,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.examplemod]]
+modId = "minecraft"
+type = "required"
+versionRange = "${minecraft}"
+
+[[dependencies.examplemod]]
+modId="minecraft"
+type="required"
+versionRange="${minecraft}"
+ordering="NONE"
+side="BOTH"
