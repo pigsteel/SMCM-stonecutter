@@ -1,7 +1,6 @@
 package com.github.pigsteel.smcm.registry;
 
 import com.github.pigsteel.smcm.SMCM;
-import com.github.pigsteel.smcm.services.util.RegistryHandle;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
