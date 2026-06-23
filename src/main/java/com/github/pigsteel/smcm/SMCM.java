@@ -17,19 +17,15 @@ public class SMCM {
     public static final String MOD_NAME = "SMCM";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_NAME);
 
-    // The loader specific projects are able to import and use any code from the common project. This allows you to
-    // write the majority of your code here and load it from your loader specific projects. This example has some
-    // code that gets invoked by the entry point of the loader specific projects.
     public static void init() {
-        //DataComponents.init();
-        //LootTables.init();
         smcm$Registries.load();
+        smcm$EntityDataSerializers.register();
         smcm$SoundEvents.register();
         smcm$EntityTypes.register();
         smcm$Items.register();
-        Attributes.load();
-        //DataComponents.load();
-        //LootTables.load();
+        Attributes.register();
+        smcm$DataComponents.load();
+        LootTables.load();
         smcm$DataAttachments.load();
     }
 

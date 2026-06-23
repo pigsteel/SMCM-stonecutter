@@ -1,7 +1,7 @@
 package com.github.pigsteel.smcm.client.renderer.entity;
 
 import com.github.pigsteel.smcm.client.renderer.entity.state.GeomancerRenderState;
-import com.github.pigsteel.smcm.entity.illager.Geomancer;
+import com.github.pigsteel.smcm.entity.monster.illager.Geomancer;
 import net.minecraft.client.model.monster.illager.IllagerModel;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.IllagerRenderer;

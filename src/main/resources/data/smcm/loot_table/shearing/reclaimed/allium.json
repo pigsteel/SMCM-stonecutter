@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:shearing",
+  "minecraft:type": "minecraft:shearing",
   "pools": [
     {
       "rolls": 1,

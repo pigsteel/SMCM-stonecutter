@@ -9,6 +9,11 @@ public class FabricEntrypoint implements ModInitializer {
     @Override
     public void onInitialize() {
         SMCM.init();
+
+        FabricItemGroups.init();
+        FabricRegistries.init();
+        FabricEntitySpawns.registerSpawnRules();
+        FabricEntitySpawns.AddSpawns();
     }
 
 }

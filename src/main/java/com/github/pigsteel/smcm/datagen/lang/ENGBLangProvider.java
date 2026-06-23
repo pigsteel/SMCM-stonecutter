@@ -1,5 +1,5 @@
 package com.github.pigsteel.smcm.datagen.lang;
-
+/*
 import com.github.pigsteel.smcm.SMCM;
 import com.github.pigsteel.smcm.registry.smcm$EntityTypes;
 import com.github.pigsteel.smcm.registry.smcm$Items;
@@ -120,4 +120,4 @@ public class ENGBLangProvider extends LanguageProvider implements SMCMLangProvid
     public String HurtsVerb() {
         return " hurts";
     }
-}
+}*/

@@ -1,35 +1,37 @@
 package com.github.pigsteel.smcm.registry;
 
-import com.github.pigsteel.smcm.entity.skeleton.SunkenVariant;
-import com.github.pigsteel.smcm.entity.skeleton.SunkenVariants;
-import dev.architectury.registry.registries.DeferredRegister;
+import com.github.pigsteel.smcm.SMCM;
 //? fabric {
+import com.github.pigsteel.smcm.entity.monster.skeleton.SunkenVariant;
+import net.fabricmc.fabric.api.attachment.v1.AttachmentRegistry;
+import net.fabricmc.fabric.api.attachment.v1.AttachmentSyncPredicate;
 import net.fabricmc.fabric.api.attachment.v1.AttachmentType;
 //?}
-import net.minecraft.core.UUIDUtil;
-import net.minecraft.network.codec.ByteBufCodecs;
-import net.minecraft.resources.ResourceKey;
 
-import java.util.Optional;
-import java.util.UUID;
+import net.minecraft.core.Holder;
+import net.minecraft.network.codec.ByteBufCodecs;
 
 public class smcm$DataAttachments {
-    public static final DeferredRegister<AttachmentType<?>> DATA_ATTACHMENTS = DeferredRegister.create();
 
-    public static final DataAttachmentHandle<Boolean> DATA_FROSTBITTEN_CONVERSION_ID =
-            Services.ATTACHMENTS.registerSyncedEntityAttachment(
-                    "data_frostbitten_conversion_id",
-                    () -> false,
-                    ByteBufCodecs.BOOL
-            );
+    public static final AttachmentType<Boolean> DATA_FROSTBITTEN_CONVERSION_ID = AttachmentRegistry.create(
+            SMCM.id("data_frostbitten_conversion_id"),
+            builder -> builder
+                    .initializer(() -> false)
+                    .syncWith(
+                            ByteBufCodecs.BOOL,
+                            AttachmentSyncPredicate.all()
+                    )
+    );
 
-    public static final DataAttachmentHandle<ResourceKey<SunkenVariant>> SUNKEN_VARIANT =
-            Services.ATTACHMENTS.registerPersistentSyncedEntityAttachment(
-                    "sunken_variant",
-                    () -> SunkenVariants.NORMAL,
-                    SunkenVariant.KEY_CODEC.fieldOf("value"),
-                    SunkenVariant.KEY_STREAM_CODEC
-            );
+    public static final AttachmentType<Holder<SunkenVariant>> SUNKEN_VARIANT = AttachmentRegistry.create(
+            SMCM.id("sunken_variant"),
+            builder -> builder
+                    .persistent(SunkenVariant.CODEC)
+                    .syncWith(
+                            SunkenVariant.STREAM_CODEC,
+                            AttachmentSyncPredicate.all()
+                    )
+    );
 
     private smcm$DataAttachments() {
     }

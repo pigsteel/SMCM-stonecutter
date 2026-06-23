@@ -8,8 +8,6 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.util.Mth;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.entity.HumanoidArm;
 
 public class NecromancerModel<T extends NecromancerRenderState> extends HumanoidModel<NecromancerRenderState> {
     private final ModelPart redStrip;
@@ -21,7 +19,7 @@ public class NecromancerModel<T extends NecromancerRenderState> extends Humanoid
     private final KeyframeAnimation summonAnimation;
     private final KeyframeAnimation shootingAnimation;
 
-    public NecromancerModel(ModelPart root) {
+    public NecromancerModel(final ModelPart root) {
         super(root);
 
         if (this.body.hasChild("robes_strip")) {
@@ -44,7 +42,7 @@ public class NecromancerModel<T extends NecromancerRenderState> extends Humanoid
     }
 
     @Override
-    public void setupAnim(NecromancerRenderState state) {
+    public void setupAnim(final NecromancerRenderState state) {
         super.setupAnim(state);
 
         if (this.redStrip != null) { // again because of cloak, have to null check
@@ -69,49 +67,6 @@ public class NecromancerModel<T extends NecromancerRenderState> extends Humanoid
         this.rightPauldron.xRot = this.rightArm.xRot * inherit;
         this.rightPauldron.yRot = this.rightArm.yRot * inherit;
         this.rightPauldron.zRot = this.rightArm.zRot * inherit;
-    }
-
-    private void poseStaff(boolean leftHanded) {
-        float armDampener = 0.15F;
-
-        ModelPart mainArm = leftHanded ? this.leftArm : this.rightArm;
-        ModelPart offArm = leftHanded ? this.rightArm : this.leftArm;
-        float xOffset = leftHanded ? 4.5F : -5.5F;
-        float reverse = leftHanded ? -1.0F : 1.0F;
-
-        // Arm bent/raised forward around 90 degrees.
-        mainArm.xRot = -Mth.HALF_PI + mainArm.xRot * armDampener;
-        mainArm.yRot = reverse * 8.0F * Mth.DEG_TO_RAD + mainArm.yRot * armDampener;
-        mainArm.zRot = reverse * 4.0F * Mth.DEG_TO_RAD + mainArm.zRot * armDampener;
-
-        // Optional: keep offhand calmer.
-        offArm.xRot *= 0.25F;
-        offArm.zRot -= 0.135F * reverse;
-
-        copyStaffToHand(mainArm);
-
-        this.staff.setPos(xOffset, -1.75F, -10.0F);
-
-        this.staff.setRotation(0.0F, 0.0F, 0.0F);
-    }
-
-    private static void copyRotation(ModelPart target, ModelPart source) {
-        target.xRot = source.xRot + Mth.HALF_PI;
-        target.yRot = source.yRot;
-        target.zRot = source.zRot;
-    }
-
-    private void copyStaffToHand(ModelPart arm) {
-        copyRotation(this.staffPivot, arm);
-    }
-
-    private static float smoothstep(float progress) {
-        progress = Mth.clamp(progress, 0.0F, 1.0F);
-        return progress * progress * (3.0F - 2.0F * progress);
-    }
-
-    private static float inverseLerp(float min, float max, float value) {
-        return Mth.clamp((value - min) / (max - min), 0.0F, 1.0F);
     }
 
     public static LayerDefinition createBodyLayer() {

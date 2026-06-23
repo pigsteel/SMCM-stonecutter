@@ -1,5 +1,5 @@
 package com.github.pigsteel.smcm.datagen.lang;
-
+/*
 import com.github.pigsteel.smcm.SMCM;
 import com.github.pigsteel.smcm.registry.smcm$EntityTypes;
 import com.github.pigsteel.smcm.registry.smcm$Items;
@@ -153,4 +153,4 @@ public class ITITLangProvider extends LanguageProvider implements SMCMLangProvid
     public String SunkenSkeletonNameS() {
         return s(SunkenSkeletonName());
     }
-}
+}*/

@@ -1,6 +1,6 @@
 package com.github.pigsteel.smcm.entity.ai.goal;
 
-import com.github.pigsteel.smcm.entity.Necromancer;
+import com.github.pigsteel.smcm.entity.monster.Necromancer;
 import com.github.pigsteel.smcm.registry.smcm$SoundEvents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -300,8 +300,10 @@ public class NecromancerSummonGoal extends Goal {
 
         horse.setTamed(true);
         horse.setPersistenceRequired();
+        horse.setItemSlot(EquipmentSlot.BODY, Items.IRON_HORSE_ARMOR.getDefaultInstance());
 
         rider.setItemSlot(EquipmentSlot.MAINHAND, Items.IRON_SPEAR.getDefaultInstance());
+        rider.setItemSlot(EquipmentSlot.HEAD, Items.CHAINMAIL_HELMET.getDefaultInstance());
         rider.setTarget(this.necromancer.getTarget());
         rider.setPersistenceRequired();
 

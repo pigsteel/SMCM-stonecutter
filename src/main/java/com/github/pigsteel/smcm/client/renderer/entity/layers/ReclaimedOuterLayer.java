@@ -3,7 +3,7 @@ package com.github.pigsteel.smcm.client.renderer.entity.layers;
 import com.github.pigsteel.smcm.SMCM;
 import com.github.pigsteel.smcm.client.model.monster.zombie.BabyReclaimedModel;
 import com.github.pigsteel.smcm.client.model.monster.zombie.ReclaimedModel;
-import com.github.pigsteel.smcm.registry.smcm$ModelLayers;
+import com.github.pigsteel.smcm.client.model.geom.smcm$ModelLayers;
 import com.github.pigsteel.smcm.client.renderer.entity.state.ReclaimedRenderState;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.model.geom.EntityModelSet;

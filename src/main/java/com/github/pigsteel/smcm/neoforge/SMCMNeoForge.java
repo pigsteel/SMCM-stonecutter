@@ -1,6 +1,7 @@
 package com.github.pigsteel.smcm.neoforge;
 
-import com.github.pigsteel.smcm.SMCM;
+//? neoforge {
+/*import com.github.pigsteel.smcm.SMCM;
 import com.github.pigsteel.smcm.entity.skeleton.SunkenVariant;
 import com.github.pigsteel.smcm.registry.SMCMNeoForgeRegistries;
 import com.github.pigsteel.smcm.registry.SMCMNeoForgeItemGroups;
@@ -58,3 +59,4 @@ public class SMCMNeoForge {
         );
     }
 }
+*///?}

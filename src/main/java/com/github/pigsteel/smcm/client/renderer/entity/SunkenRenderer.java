@@ -4,14 +4,12 @@ import com.github.pigsteel.smcm.SMCM;
 import com.github.pigsteel.smcm.client.model.monster.skeleton.AbstractSunkenModel;
 import com.github.pigsteel.smcm.client.model.monster.skeleton.CoralSunkenModel;
 import com.github.pigsteel.smcm.client.renderer.entity.state.SunkenRenderState;
-import com.github.pigsteel.smcm.entity.skeleton.SunkenVariant;
-import com.github.pigsteel.smcm.registry.smcm$ModelLayers;
-import com.github.pigsteel.smcm.entity.skeleton.Sunken;
+import com.github.pigsteel.smcm.entity.monster.skeleton.SunkenVariant;
+import com.github.pigsteel.smcm.client.model.geom.smcm$ModelLayers;
+import com.github.pigsteel.smcm.entity.monster.skeleton.Sunken;
 import com.google.common.collect.Maps;
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.HumanoidModel;
-import net.minecraft.client.model.monster.skeleton.SkeletonModel;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.AbstractSkeletonRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -108,7 +106,7 @@ public class SunkenRenderer extends AbstractSkeletonRenderer<Sunken, SunkenRende
 
     public void extractRenderState(final Sunken entity, final SunkenRenderState state, float partialTicks) {
         super.extractRenderState(entity, state, partialTicks);
-        state.variant = entity.getVariant();
+        state.variant = entity.getVariant().value();
         state.isSheared = entity.isSheared();
 
         SunkenVariant.ModelType modelType = state.variant == null

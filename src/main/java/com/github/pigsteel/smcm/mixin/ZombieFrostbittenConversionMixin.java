@@ -2,7 +2,6 @@ package com.github.pigsteel.smcm.mixin;
 
 import com.github.pigsteel.smcm.entity.ZombieFrostbittenConversion;
 import com.github.pigsteel.smcm.registry.smcm$EntityTypes;
-import com.github.pigsteel.smcm.services.Services;
 import com.google.common.annotations.VisibleForTesting;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.zombie.Zombie;
@@ -64,11 +63,7 @@ public abstract class ZombieFrostbittenConversionMixin implements ZombieFrostbit
     public void smcm$setFreezeConverting(boolean isConverting) {
         Zombie zombie = (Zombie) (Object) this;
 
-        Services.ATTACHMENTS.set(
-                zombie,
-                DATA_FROSTBITTEN_CONVERSION_ID,
-                isConverting
-        );
+        zombie.setAttached(DATA_FROSTBITTEN_CONVERSION_ID, isConverting);
     }
 
     @VisibleForTesting
@@ -93,10 +88,7 @@ public abstract class ZombieFrostbittenConversionMixin implements ZombieFrostbit
     public boolean smcm$isFreezeConverting() {
         Zombie zombie = (Zombie) (Object) this;
 
-        return Services.ATTACHMENTS.get(
-                zombie,
-                DATA_FROSTBITTEN_CONVERSION_ID
-        );
+        return zombie.getAttachedOrSet(DATA_FROSTBITTEN_CONVERSION_ID, false);
     }
 
     @Inject(method = "addAdditionalSaveData", at = @At("TAIL"))

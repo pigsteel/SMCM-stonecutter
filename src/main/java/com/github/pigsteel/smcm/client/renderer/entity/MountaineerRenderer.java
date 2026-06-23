@@ -1,6 +1,6 @@
 package com.github.pigsteel.smcm.client.renderer.entity;
 
-import com.github.pigsteel.smcm.entity.illager.Mountaineer;
+import com.github.pigsteel.smcm.entity.monster.illager.Mountaineer;
 import net.minecraft.client.model.monster.illager.IllagerModel;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.IllagerRenderer;

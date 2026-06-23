@@ -1,17 +1,12 @@
 package com.github.pigsteel.smcm.client.renderer.entity;
 
 import com.github.pigsteel.smcm.SMCM;
-import com.github.pigsteel.smcm.client.renderer.entity.state.ReclaimedRenderState;
-import com.github.pigsteel.smcm.entity.skeleton.Lost;
-import com.github.pigsteel.smcm.entity.zombie.Reclaimed;
-import com.github.pigsteel.smcm.registry.smcm$ModelLayers;
+import com.github.pigsteel.smcm.entity.monster.skeleton.Lost;
+import com.github.pigsteel.smcm.client.model.geom.smcm$ModelLayers;
 import net.minecraft.client.renderer.entity.AbstractSkeletonRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.state.SkeletonRenderState;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.level.block.state.BlockState;
-
-import static net.minecraft.client.renderer.entity.AbstractMinecartRenderer.BLOCK_DISPLAY_CONTEXT;
 
 public class LostRenderer extends AbstractSkeletonRenderer<Lost, SkeletonRenderState> {
     private static final Identifier LOST_LOCATION = Identifier.fromNamespaceAndPath(SMCM.MOD_ID,"textures/entity/skeleton/lost.png");

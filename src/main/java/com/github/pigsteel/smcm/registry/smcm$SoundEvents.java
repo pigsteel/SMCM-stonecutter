@@ -71,11 +71,15 @@ public class smcm$SoundEvents {
     public static final RegistrySupplier<SoundEvent> SKELETON_CONVERTED_TO_SUNKEN =
             registerSoundEvent("entity.skeleton.converted_to_sunken");
 
-    public static RegistrySupplier<SoundEvent> registerSoundEvent(String key) {
+    public static RegistrySupplier<SoundEvent> registerSoundEvent(String name) {
+        Identifier id = Identifier.fromNamespaceAndPath(SMCM.MOD_ID, name);
 
+        return SOUND_EVENTS.register(name, () -> SoundEvent.createVariableRangeEvent(id));
     }
 
     public static void register() {
+
         SMCM.LOGGER.debug("Sounds for SMCM!");
+        SOUND_EVENTS.register();
     }
 }

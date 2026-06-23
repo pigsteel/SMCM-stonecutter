@@ -1,5 +1,5 @@
 package com.github.pigsteel.smcm.datagen.model;
-
+/*
 import com.github.pigsteel.smcm.SMCM;
 import com.github.pigsteel.smcm.registry.smcm$Items;
 import net.minecraft.client.data.models.BlockModelGenerators;
@@ -30,3 +30,4 @@ public class SMCMModelProvider extends ModelProvider {
         itemModelGenerator.generateFlatItem(smcm$Items.LOST_SPAWN_EGG.get(), ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(smcm$Items.NECROMANCER_SPAWN_EGG.get(), ModelTemplates.FLAT_ITEM);   }
 }
+*/

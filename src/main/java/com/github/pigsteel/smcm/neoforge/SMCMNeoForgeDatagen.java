@@ -1,6 +1,7 @@
 package com.github.pigsteel.smcm.neoforge;
 
-import com.github.pigsteel.smcm.SMCM;
+//? neoforge {
+/*import com.github.pigsteel.smcm.SMCM;
 import com.github.pigsteel.smcm.datagen.lang.*;
 import com.github.pigsteel.smcm.datagen.model.*;
 import com.github.pigsteel.smcm.registry.smcm$RegistryData;
@@ -49,3 +50,4 @@ public final class SMCMNeoForgeDatagen {
 
     }
 }
+*///?}

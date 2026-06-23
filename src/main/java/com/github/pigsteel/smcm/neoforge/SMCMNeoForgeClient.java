@@ -1,6 +1,7 @@
 package com.github.pigsteel.smcm.neoforge;
 
-import com.github.pigsteel.smcm.SMCM;
+//? neoforge {
+/*import com.github.pigsteel.smcm.SMCM;
 import com.github.pigsteel.smcm.SMCMClient;
 import com.github.pigsteel.smcm.services.ServicesClient;
 import net.neoforged.api.distmarker.Dist;
@@ -24,3 +25,4 @@ public final class SMCMNeoForgeClient {
         ServicesClient.CLIENT_REGISTRY.applyModelLayerRegistrations(event::registerLayerDefinition);
     }
 }
+*///?}
