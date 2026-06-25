@@ -1,5 +1,6 @@
 package com.github.pigsteel.smcm.fabric;
 
+//? fabric {
 import com.github.pigsteel.smcm.entity.monster.skeleton.SunkenVariant;
 import com.github.pigsteel.smcm.registry.smcm$Registries;
 import net.fabricmc.fabric.api.event.registry.DynamicRegistries;
@@ -9,3 +10,4 @@ public class FabricRegistries {
         DynamicRegistries.registerSynced(smcm$Registries.SUNKEN_VARIANT, SunkenVariant.DIRECT_CODEC, SunkenVariant.NETWORK_CODEC);
     }
 }
+//?}

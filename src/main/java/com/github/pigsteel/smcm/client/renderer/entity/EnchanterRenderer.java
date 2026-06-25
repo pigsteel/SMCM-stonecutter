@@ -10,7 +10,7 @@ import net.minecraft.client.renderer.entity.IllagerRenderer;
 import net.minecraft.resources.Identifier;
 
 public class EnchanterRenderer extends IllagerRenderer<Enchanter, EnchanterRenderState> {
-    private static final Identifier ENCHANTER = Identifier.fromNamespaceAndPath(SMCM.MOD_ID,"textures/entity/illager/enchanter.png");
+    private static final Identifier ENCHANTER_LOCATION = Identifier.fromNamespaceAndPath(SMCM.MOD_ID,"textures/entity/illager/enchanter.png");
 
     public EnchanterRenderer(EntityRendererProvider.Context context) {
         super(context, new EnchanterModel(context.bakeLayer(smcm$ModelLayers.ENCHANTER)), 0.5F);
@@ -18,7 +18,7 @@ public class EnchanterRenderer extends IllagerRenderer<Enchanter, EnchanterRende
 
     @Override
     public Identifier getTextureLocation(EnchanterRenderState state) {
-        return ENCHANTER;
+        return ENCHANTER_LOCATION;
     }
 
     @Override

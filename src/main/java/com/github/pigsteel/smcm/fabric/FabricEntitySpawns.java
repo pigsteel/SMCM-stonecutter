@@ -1,7 +1,10 @@
 package com.github.pigsteel.smcm.fabric;
 
+//? fabric  {
 import com.github.pigsteel.smcm.SMCM;
+import com.github.pigsteel.smcm.entity.monster.VilerWitch;
 import com.github.pigsteel.smcm.entity.monster.zombie.Frostbitten;
+import com.github.pigsteel.smcm.entity.monster.zombie.Reclaimed;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
@@ -12,8 +15,7 @@ import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.Heightmap;
 
-import static com.github.pigsteel.smcm.registry.smcm$EntityTypes.FROSTBITTEN;
-import static com.github.pigsteel.smcm.registry.smcm$EntityTypes.RECLAIMED;
+import static com.github.pigsteel.smcm.registry.smcm$EntityTypes.*;
 
 public class FabricEntitySpawns {
     public static void AddSpawns() {
@@ -62,6 +64,22 @@ public class FabricEntitySpawns {
                             );
                         }
                 );
+
+        BiomeModifications.create(SMCM.id("adjust_dark_forest_witch_spawns"))
+                .add(ModificationPhase.REPLACEMENTS,
+                        BiomeSelectors.includeByKey(Biomes.DARK_FOREST),
+                        context -> {
+                            var spawnSettings = context.getMobSpawnSettings();
+
+                            spawnSettings.removeSpawnsOfEntityType(EntityTypes.WITCH);
+
+                            spawnSettings.addSpawn(
+                                    MobCategory.MONSTER,
+                                    new MobSpawnSettings.SpawnerData(VILER_WITCH.get(), 1, 1),
+                                    5
+                            );
+                        }
+                );
     }
 
     public static void registerSpawnRules() {
@@ -75,7 +93,14 @@ public class FabricEntitySpawns {
                 RECLAIMED.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                Monster::checkSurfaceMonstersSpawnRules
+                Reclaimed::checkSurfaceMonstersSpawnRules
+        );
+        SpawnPlacements.register(
+                VILER_WITCH.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                VilerWitch::checkMonsterSpawnRules
         );
     }
 }
+//?}

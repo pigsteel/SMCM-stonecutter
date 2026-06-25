@@ -68,6 +68,26 @@ public class smcm$SoundEvents {
     public static final RegistrySupplier<SoundEvent> SUNKEN_STEP =
             registerSoundEvent("entity.sunken.step");
 
+    public static final RegistrySupplier<SoundEvent> REDSTONE_GOLEM_STEP_LIGHT =
+            registerSoundEvent("entity.redstone_golem.step_light");
+    public static final RegistrySupplier<SoundEvent> REDSTONE_GOLEM_HURT =
+            registerSoundEvent("entity.redstone_golem.hurt");
+    public static final RegistrySupplier<SoundEvent> REDSTONE_GOLEM_DEATH =
+            registerSoundEvent("entity.redstone_golem.death");
+    public static final RegistrySupplier<SoundEvent> REDSTONE_GOLEM_STEP_HEAVY =
+            registerSoundEvent("entity.redstone_golem.step_heavy");
+    public static final RegistrySupplier<SoundEvent> REDSTONE_GOLEM_AMBIENT =
+            registerSoundEvent("entity.redstone_golem.ambient");
+
+    public static final RegistrySupplier<SoundEvent> GEOMANCER_AMBIENT =
+            registerSoundEvent("entity.geomancer.ambient");
+    public static final RegistrySupplier<SoundEvent> GEOMANCER_HURT =
+            registerSoundEvent("entity.geomancer.hurt");
+    public static final RegistrySupplier<SoundEvent> GEOMANCER_DEATH =
+            registerSoundEvent("entity.geomancer.death");
+
+
+
     public static final RegistrySupplier<SoundEvent> SKELETON_CONVERTED_TO_SUNKEN =
             registerSoundEvent("entity.skeleton.converted_to_sunken");
 

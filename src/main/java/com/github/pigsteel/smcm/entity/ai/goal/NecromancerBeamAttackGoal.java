@@ -1,6 +1,6 @@
 package com.github.pigsteel.smcm.entity.ai.goal;
 
-import com.github.pigsteel.smcm.entity.monster.Necromancer;
+import com.github.pigsteel.smcm.entity.monster.necromancer.Necromancer;
 import com.github.pigsteel.smcm.registry.smcm$SoundEvents;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;

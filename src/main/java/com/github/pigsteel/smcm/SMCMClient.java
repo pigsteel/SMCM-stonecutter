@@ -1,9 +1,8 @@
 package com.github.pigsteel.smcm;
 
-import com.github.pigsteel.smcm.registry.Animations;
 import com.github.pigsteel.smcm.client.model.geom.smcm$LayerDefinitions;
 import com.github.pigsteel.smcm.client.model.geom.smcm$ModelLayers;
-import com.github.pigsteel.smcm.registry.smcm$Renderers;
+import com.github.pigsteel.smcm.registry.smcm$EntityRenderers;
 
 public final class SMCMClient {
     private static boolean initialized;
@@ -16,9 +15,8 @@ public final class SMCMClient {
 
         initialized = true;
 
-        Animations.register();
         smcm$ModelLayers.register();
         smcm$LayerDefinitions.registerModelLayers();
-        smcm$Renderers.register();
+        smcm$EntityRenderers.register();
     }
 }

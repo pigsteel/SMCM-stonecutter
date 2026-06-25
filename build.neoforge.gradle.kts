@@ -28,6 +28,10 @@ jsonlang {
     prettyPrint = true
 }
 
+sourceSets["main"].resources {
+    srcDir("$rootDir/src/main/generated/resources")
+}
+
 repositories {
     maven {
         // location of the maven that hosts JEI files since January 2023

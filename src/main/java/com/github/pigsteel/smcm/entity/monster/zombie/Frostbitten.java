@@ -238,10 +238,12 @@ public class Frostbitten extends Zombie implements RangedAttackMob {
 
             this.frostbitten.setAimingSnowball(false);
 
-            this.frostbitten.setItemSlot(
-                    EquipmentSlot.MAINHAND,
-                    ItemStack.EMPTY
-            );
+            if(this.frostbitten.getMainHandItem().is(Items.SNOWBALL)) { // To avoid an edge case where stop is called by reassessWeaponGoal
+                this.frostbitten.setItemSlot(
+                        EquipmentSlot.MAINHAND,
+                        ItemStack.EMPTY
+                );
+            }
         }
 
         @Override public boolean canUse() {

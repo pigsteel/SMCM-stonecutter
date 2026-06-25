@@ -13,6 +13,7 @@ import net.minecraft.network.codec.ByteBufCodecs;
 
 public class smcm$DataAttachments {
 
+    //? fabric {
     public static final AttachmentType<Boolean> DATA_FROSTBITTEN_CONVERSION_ID = AttachmentRegistry.create(
             SMCM.id("data_frostbitten_conversion_id"),
             builder -> builder
@@ -32,6 +33,11 @@ public class smcm$DataAttachments {
                             AttachmentSyncPredicate.all()
                     )
     );
+    //?}
+
+    //? neoforge {
+
+    //?}
 
     private smcm$DataAttachments() {
     }

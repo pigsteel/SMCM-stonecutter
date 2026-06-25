@@ -1,6 +1,6 @@
 package com.github.pigsteel.smcm.entity.ai.goal;
 
-import com.github.pigsteel.smcm.entity.monster.Necromancer;
+import com.github.pigsteel.smcm.entity.monster.necromancer.Necromancer;
 import com.github.pigsteel.smcm.registry.smcm$SoundEvents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -161,7 +161,6 @@ public class NecromancerSummonGoal extends Goal {
         this.casting = false;
         this.castTicks = 0;
         this.hasPlayedPrepareSound = false;
-        //this.necromancer.setSummoning(false);
     }
 
     private void performSummon(ServerLevel level) {

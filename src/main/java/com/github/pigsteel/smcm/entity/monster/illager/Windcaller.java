@@ -7,7 +7,7 @@ import net.minecraft.world.entity.monster.illager.SpellcasterIllager;
 import net.minecraft.world.level.Level;
 
 public class Windcaller extends SpellcasterIllager {
-    protected Windcaller(EntityType<? extends Windcaller> type, Level level) {
+    public Windcaller(EntityType<? extends Windcaller> type, Level level) {
         super(type, level);
     }
 

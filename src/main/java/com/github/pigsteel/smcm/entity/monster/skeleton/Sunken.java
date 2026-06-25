@@ -51,7 +51,7 @@ public class Sunken extends AbstractSkeleton implements CrossbowAttackMob, Shear
     private static final EntityDataAccessor<Boolean> IS_CHARGING_CROSSBOW;
     private static final EntityDataAccessor<Boolean> IS_SHEARED;
     private static final EntityDataAccessor<Boolean> IS_CORAL_DEAD;
-    private final RangedCrossbowAttackGoal crossbowGoal = new RangedCrossbowAttackGoal(this, 1.0, 16);
+    private final RangedCrossbowAttackGoal<Sunken> crossbowGoal = new RangedCrossbowAttackGoal<>(this, 1.0, 16);
     private int coralDeathTimer;
 
     public Sunken(EntityType<? extends Sunken> type, final Level level) {

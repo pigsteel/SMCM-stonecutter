@@ -9,11 +9,7 @@ import net.minecraft.client.animation.AnimationChannel.Targets;
 import net.minecraft.client.animation.AnimationDefinition.Builder;
 
 public class NecromancerAnimation {
-    public static final AnimationDefinition NECROMANCER_SUMMON;
-    public static final AnimationDefinition NECROMANCER_SHOOT;
-
-    static {
-        NECROMANCER_SUMMON = Builder.withLength(5.0F)
+    public static final AnimationDefinition NECROMANCER_SUMMON = Builder.withLength(5.0F)
                 .addAnimation(
                         "body",
                         new AnimationChannel(
@@ -94,8 +90,5 @@ public class NecromancerAnimation {
                 )
                 .build();
 
-        NECROMANCER_SHOOT = Builder.withLength(3.0F).build();
-    }
-
-    public static void register() {}
+    public static AnimationDefinition NECROMANCER_SHOOT = Builder.withLength(3.0F).build();
 }

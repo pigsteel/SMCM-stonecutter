@@ -5,7 +5,9 @@ import com.github.pigsteel.smcm.registry.LootTables;
 import com.github.pigsteel.smcm.registry.smcm$DataComponents;
 import com.github.pigsteel.smcm.registry.smcm$SoundEvents;
 import io.netty.buffer.ByteBuf;
+import net.minecraft.core.component.DataComponentGetter;
 import net.minecraft.core.component.DataComponentType;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -31,6 +33,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
@@ -88,7 +91,20 @@ public class Reclaimed extends Zombie implements Bonemealable, Shearable {
 
     @Override
     public <T> @Nullable T get(final DataComponentType<? extends T> type) {
-        return type == smcm$DataComponents.RECLAIMED_HEAD_FLOWER ? castComponentValue((DataComponentType<T>)type, this.getHeadFlower()) : super.get(type);
+        if (type == smcm$DataComponents.RECLAIMED_HEAD_FLOWER) {
+            HeadFlower flower = this.getHeadFlowerType();
+
+            return flower == null
+                    ? null
+                    : (T)castComponentValue(smcm$DataComponents.RECLAIMED_HEAD_FLOWER, flower);
+        }
+
+        return super.get(type);
+    }
+
+    @Nullable
+    public HeadFlower getHeadFlowerType() {
+        return HeadFlower.byBlockState(this.getHeadFlower());
     }
 
     @Override
@@ -195,48 +211,97 @@ public class Reclaimed extends Zombie implements Bonemealable, Shearable {
         return !this.isSheared() && this.isAlive() && !this.isBaby();
     }
 
+    @Override
+    protected void applyImplicitComponents(final DataComponentGetter components) {
+        this.applyImplicitComponentIfPresent(components, smcm$DataComponents.RECLAIMED_HEAD_FLOWER);
+        super.applyImplicitComponents(components);
+    }
+
+    @Override
+    protected <T> boolean applyImplicitComponent(final DataComponentType<T> type, final T value) {
+        if (type == smcm$DataComponents.RECLAIMED_HEAD_FLOWER) {
+            this.setHeadFlower(castComponentValue(smcm$DataComponents.RECLAIMED_HEAD_FLOWER, value).defaultBlockState());
+            return true;
+        } else {
+            return super.applyImplicitComponent(type, value);
+        }
+    }
+
     public enum HeadFlower implements StringRepresentable {
-        CORNFLOWER(0, "cornflower"),
-        DANDELION(1, "dandelion"),
-        POPPY(2, "poppy"),
-        BLUE_ORCHID(3, "blue_orchid"),
-        ALLIUM(4, "allium"),
-        AZURE_BLUET( 5, "azure_bluet"),
-        OXEYE_DAISY( 6, "oxeye_daisy"),
-        LILY_OF_THE_VALLEY( 7, "lily_of_the_valley"),
-        RED_TULIP( 8, "red_tulip"),
-        WHITE_TULIP( 9, "white_tulip"),
-        PINK_TULIP( 10, "pink_tulip");
+        CORNFLOWER(0, "cornflower", Blocks.CORNFLOWER),
+        DANDELION(1, "dandelion", Blocks.DANDELION),
+        POPPY(2, "poppy", Blocks.POPPY),
+        BLUE_ORCHID(3, "blue_orchid", Blocks.BLUE_ORCHID),
+        ALLIUM(4, "allium", Blocks.ALLIUM),
+        AZURE_BLUET(5, "azure_bluet", Blocks.AZURE_BLUET),
+        OXEYE_DAISY(6, "oxeye_daisy", Blocks.OXEYE_DAISY),
+        LILY_OF_THE_VALLEY(7, "lily_of_the_valley", Blocks.LILY_OF_THE_VALLEY),
+        RED_TULIP(8, "red_tulip", Blocks.RED_TULIP),
+        ORANGE_TULIP(9, "orange_tulip", Blocks.ORANGE_TULIP),
+        WHITE_TULIP(10, "white_tulip", Blocks.WHITE_TULIP),
+        PINK_TULIP(11, "pink_tulip", Blocks.PINK_TULIP);
 
         public static final List<HeadFlower> VALUES = List.of(values());
+
         private static final IntFunction<HeadFlower> BY_ID = ByIdMap.continuous(
-                HeadFlower::getId, VALUES.toArray(HeadFlower[]::new), ByIdMap.OutOfBoundsStrategy.ZERO
+                HeadFlower::getId,
+                VALUES.toArray(HeadFlower[]::new),
+                ByIdMap.OutOfBoundsStrategy.ZERO
         );
-        public static final EnumCodec<HeadFlower> CODEC = StringRepresentable.fromEnum(HeadFlower::values);
-        public static final StreamCodec<ByteBuf, HeadFlower> STREAM_CODEC = ByteBufCodecs.idMapper(BY_ID, HeadFlower::getId);
+
+        public static final EnumCodec<HeadFlower> CODEC =
+                StringRepresentable.fromEnum(HeadFlower::values);
+
+        public static final StreamCodec<ByteBuf, HeadFlower> STREAM_CODEC =
+                ByteBufCodecs.idMapper(BY_ID, HeadFlower::getId);
+
         private final int id;
         private final String name;
+        private final Block block;
 
-        HeadFlower(final int id, final String name) {
+        HeadFlower(final int id, final String name, final Block block) {
             this.id = id;
             this.name = name;
+            this.block = block;
         }
 
         public int getId() {
-            return id;
+            return this.id;
         }
 
         public String getName() {
-            return name;
+            return this.name;
+        }
+
+        public BlockState defaultBlockState() {
+            return this.block.defaultBlockState();
+        }
+
+        @Nullable
+        public static HeadFlower byBlockState(@Nullable final BlockState state) {
+            if (state == null) {
+                return null;
+            }
+
+            Block block = state.getBlock();
+
+            for (HeadFlower value : VALUES) {
+                if (value.block == block) {
+                    return value;
+                }
+            }
+
+            return null;
         }
 
         @Nullable
         public static HeadFlower byName(final String name, @Nullable final HeadFlower def) {
-            for (HeadFlower value : values()) {
+            for (HeadFlower value : VALUES) {
                 if (value.name.equals(name)) {
                     return value;
                 }
             }
+
             return def;
         }
 
@@ -245,41 +310,4 @@ public class Reclaimed extends Zombie implements Bonemealable, Shearable {
             return this.name;
         }
     }
-
-    /*
-    public record ReclaimedHeadFlowerLootCondition(
-            HeadFlower flower
-    ) implements LootItemCondition {
-        public static final MapCodec<ReclaimedHeadFlowerLootCondition> CODEC =
-                RecordCodecBuilder.mapCodec(instance ->
-                        instance.group(
-                                HeadFlower.CODEC
-                                        .fieldOf("flower")
-                                        .forGetter(ReclaimedHeadFlowerLootCondition::flower)
-                        ).apply(instance, ReclaimedHeadFlowerLootCondition::new)
-                );
-
-        @Override
-        public boolean test(LootContext context) {
-            Entity entity = context.getOptionalParameter(LootContextParams.THIS_ENTITY);
-
-            if (!(entity instanceof Reclaimed reclaimed)) {
-                return false;
-            }
-
-            return reclaimed.getHeadFlowerEnum() == this.flower;
-        }
-
-        @Override
-        public Set getReferencedContextParams() {
-            return Set.of(LootContextParams.THIS_ENTITY);
-        }
-
-        @Override
-        public MapCodec<ReclaimedHeadFlowerLootCondition> codec() {
-            return CODEC;
-        }
-    }
-
-     */
 }

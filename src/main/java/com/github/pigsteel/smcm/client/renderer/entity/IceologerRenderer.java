@@ -1,5 +1,8 @@
 package com.github.pigsteel.smcm.client.renderer.entity;
 
+import com.github.pigsteel.smcm.SMCM;
+import com.github.pigsteel.smcm.client.model.geom.smcm$ModelLayers;
+import com.github.pigsteel.smcm.client.model.monster.iceologer.IceologerModel;
 import com.github.pigsteel.smcm.client.renderer.entity.state.IceologerRenderState;
 import com.github.pigsteel.smcm.entity.monster.illager.Iceologer;
 import net.minecraft.client.model.monster.illager.IllagerModel;
@@ -8,17 +11,19 @@ import net.minecraft.client.renderer.entity.IllagerRenderer;
 import net.minecraft.resources.Identifier;
 
 public class IceologerRenderer extends IllagerRenderer<Iceologer, IceologerRenderState> {
-    protected IceologerRenderer(EntityRendererProvider.Context context, IllagerModel<IceologerRenderState> model, float shadow) {
-        super(context, model, shadow);
+    private static final Identifier ICEOLOGER_LOCATION = SMCM.id("textures/entity/illager/iceologer.png");
+
+    public IceologerRenderer(EntityRendererProvider.Context context) {
+        super(context, new IceologerModel(context.bakeLayer(smcm$ModelLayers.ICEOLOGER)), 0.5F);
     }
 
     @Override
     public Identifier getTextureLocation(IceologerRenderState state) {
-        return null;
+        return ICEOLOGER_LOCATION;
     }
 
     @Override
     public IceologerRenderState createRenderState() {
-        return null;
+        return new IceologerRenderState();
     }
 }

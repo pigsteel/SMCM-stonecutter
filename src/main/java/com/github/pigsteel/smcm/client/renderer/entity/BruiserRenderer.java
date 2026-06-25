@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.entity.state.IllagerRenderState;
 import net.minecraft.resources.Identifier;
 
 public class BruiserRenderer extends IllagerRenderer<Bruiser, IllagerRenderState> {
-    private static final Identifier BRUISER = Identifier.fromNamespaceAndPath(SMCM.MOD_ID,"textures/entity/illager/bruiser.png");
+    private static final Identifier BRUISER_LOCATION = Identifier.fromNamespaceAndPath(SMCM.MOD_ID,"textures/entity/illager/bruiser.png");
 
     public BruiserRenderer(EntityRendererProvider.Context context) {
         super(context, new IllagerModel<>(context.bakeLayer(smcm$ModelLayers.BRUISER)), 0.5F);
@@ -25,7 +25,7 @@ public class BruiserRenderer extends IllagerRenderer<Bruiser, IllagerRenderState
 
     @Override
     public Identifier getTextureLocation(IllagerRenderState state) {
-        return BRUISER;
+        return BRUISER_LOCATION;
     }
 
 }

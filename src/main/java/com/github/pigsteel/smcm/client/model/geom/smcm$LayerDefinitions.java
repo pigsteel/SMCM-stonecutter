@@ -1,15 +1,15 @@
 package com.github.pigsteel.smcm.client.model.geom;
 
 import com.github.pigsteel.smcm.SMCM;
+import com.github.pigsteel.smcm.client.model.monster.iceologer.IceologerModel;
+import com.github.pigsteel.smcm.client.model.monster.redstonegolem.RedstoneGolemModel;
 import com.github.pigsteel.smcm.client.model.monster.necromancer.NecromancerCloakModel;
 import com.github.pigsteel.smcm.client.model.monster.necromancer.NecromancerModel;
 import com.github.pigsteel.smcm.client.model.monster.enchanter.EnchanterModel;
 import com.github.pigsteel.smcm.client.model.monster.skeleton.AbstractSunkenModel;
 import com.github.pigsteel.smcm.client.model.monster.skeleton.CoralSunkenModel;
-import com.github.pigsteel.smcm.client.model.monster.zombie.BabyFrostbittenModel;
-import com.github.pigsteel.smcm.client.model.monster.zombie.BabyReclaimedModel;
-import com.github.pigsteel.smcm.client.model.monster.zombie.FrostbittenModel;
-import com.github.pigsteel.smcm.client.model.monster.zombie.ReclaimedModel;
+import com.github.pigsteel.smcm.client.model.monster.witch.VilerWitchModel;
+import com.github.pigsteel.smcm.client.model.monster.zombie.*;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.PartPose;
@@ -17,6 +17,7 @@ import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshTransformer;
 import net.minecraft.client.model.monster.illager.IllagerModel;
+import net.minecraft.client.model.monster.piglin.AdultPiglinModel;
 import net.minecraft.client.model.monster.piglin.AdultZombifiedPiglinModel;
 import net.minecraft.client.model.monster.piglin.PiglinModel;
 import net.minecraft.client.model.monster.skeleton.SkeletonModel;
@@ -71,6 +72,17 @@ public class smcm$LayerDefinitions {
         registerModelLayer(smcm$ModelLayers.NECROMANCER_CLOAK, () -> NecromancerCloakModel.createCloakLayer().apply(MeshTransformer.scaling(1.2F)));
         registerModelLayer(smcm$ModelLayers.ZOMBIFIED_PIGLIN_BRUTE, AdultZombifiedPiglinModel::createBodyLayer);
         registerArmorLayers(smcm$ModelLayers.ZOMBIFIED_PIGLIN_BRUTE_ARMOR, piglinArmor);
+        registerModelLayer(smcm$ModelLayers.RECLAIMED_PUKE, ReclaimedPukeModel::createBodyLayer);
+        registerModelLayer(smcm$ModelLayers.VILER_WITCH, VilerWitchModel::createBodyLayer);
+        registerModelLayer(smcm$ModelLayers.GEOMANCER, () -> IllagerModel.createBodyLayer().apply(ILLAGER_SCALE));
+        registerModelLayer(smcm$ModelLayers.MOUNTAINEER, () -> IllagerModel.createBodyLayer().apply(ILLAGER_SCALE));
+        registerModelLayer(smcm$ModelLayers.WINDCALLER, () -> IllagerModel.createBodyLayer().apply(ILLAGER_SCALE));
+        registerModelLayer(smcm$ModelLayers.ICEOLOGER, () -> IceologerModel.createBodyLayer().apply(ILLAGER_SCALE));
+        registerModelLayer(smcm$ModelLayers.REDSTONE_GOLEM, RedstoneGolemModel::createBodyLayer);
+        registerModelLayer(smcm$ModelLayers.REDSTONE_GOLEM_GLOW, RedstoneGolemModel::createGlowLayer);
+        registerModelLayer(smcm$ModelLayers.REDSTONE_GOLEM_EYES, RedstoneGolemModel::createEyesLayer);
+        registerModelLayer(smcm$ModelLayers.PIGLIN_FARMER, AdultPiglinModel::createBodyLayer);
+        registerArmorLayers(smcm$ModelLayers.PIGLIN_FARMER_ARMOR, piglinArmor);
     }
     //?}
 

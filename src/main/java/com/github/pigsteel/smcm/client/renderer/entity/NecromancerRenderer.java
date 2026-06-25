@@ -5,7 +5,7 @@ import com.github.pigsteel.smcm.client.model.monster.necromancer.NecromancerMode
 import com.github.pigsteel.smcm.client.renderer.entity.layers.NecromancerCloakLayer;
 import com.github.pigsteel.smcm.client.renderer.entity.layers.NecromancerEyesLayer;
 import com.github.pigsteel.smcm.client.renderer.entity.state.NecromancerRenderState;
-import com.github.pigsteel.smcm.entity.monster.Necromancer;
+import com.github.pigsteel.smcm.entity.monster.necromancer.Necromancer;
 import com.github.pigsteel.smcm.client.model.geom.smcm$ModelLayers;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.HumanoidMobRenderer;

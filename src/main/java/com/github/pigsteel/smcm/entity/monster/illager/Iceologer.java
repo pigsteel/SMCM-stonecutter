@@ -7,7 +7,7 @@ import net.minecraft.world.entity.monster.illager.SpellcasterIllager;
 import net.minecraft.world.level.Level;
 
 public class Iceologer extends SpellcasterIllager {
-    protected Iceologer(EntityType<? extends Iceologer> type, Level level) {
+    public Iceologer(EntityType<? extends Iceologer> type, Level level) {
         super(type, level);
     }
 

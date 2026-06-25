@@ -326,5 +326,96 @@
         "volume": 0.6
       }
     ]
+  },
+  "entity.parrot.imitate.redstone_golem": {
+    "subtitle": "subtitles.smcm.entity.parrot.imitate.redstone_golem",
+    "sounds": [
+      {
+        "name": "smcm:entity.redstone_golem.ambient",
+        "pitch": 1.8,
+        "type": "event",
+        "volume": 0.6
+      }
+    ]
+  },
+  "entity.redstone_golem.hurt": {
+    "subtitle": "subtitles.smcm.entity.redstone_golem.hurt",
+    "sounds": [
+      "smcm:mob/redstone_golem/hurt1",
+      "smcm:mob/redstone_golem/hurt2",
+      "smcm:mob/redstone_golem/hurt3",
+      "smcm:mob/redstone_golem/hurt4",
+      "smcm:mob/redstone_golem/hurt5",
+      "smcm:mob/redstone_golem/hurt6",
+      "smcm:mob/redstone_golem/hurt7",
+      "smcm:mob/redstone_golem/hurt8"
+    ]
+  },
+  "entity.redstone_golem.death": {
+    "subtitle": "subtitles.smcm.entity.redstone_golem.death",
+    "sounds": [
+      "smcm:mob/redstone_golem/death1",
+      "smcm:mob/redstone_golem/death2",
+      "smcm:mob/redstone_golem/death3"
+    ]
+  },
+  "entity.redstone_golem.ambient": {
+    "subtitle": "subtitles.smcm.entity.redstone_golem.ambient",
+    "sounds": [
+      "smcm:mob/redstone_golem/idle1",
+      "smcm:mob/redstone_golem/idle2",
+      "smcm:mob/redstone_golem/idle3",
+      "smcm:mob/redstone_golem/idle4",
+      "smcm:mob/redstone_golem/idle5"
+    ]
+  },
+  "entity.redstone_golem.step_heavy": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "smcm:mob/redstone_golem/step_heavy1",
+      "smcm:mob/redstone_golem/step_heavy2",
+      "smcm:mob/redstone_golem/step_heavy3",
+      "smcm:mob/redstone_golem/step_heavy4",
+      "smcm:mob/redstone_golem/step_heavy5"
+    ]
+  },
+  "entity.redstone_golem.step_light": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "smcm:mob/redstone_golem/step_light1",
+      "smcm:mob/redstone_golem/step_light2",
+      "smcm:mob/redstone_golem/step_light3",
+      "smcm:mob/redstone_golem/step_light4",
+      "smcm:mob/redstone_golem/step_light5"
+    ]
+  },
+  "entity.geomancer.ambient": {
+    "subtitle": "subtitles.smcm.entity.geomancer.ambient",
+    "sounds": [
+      "smcm:mob/geomancer/idle1",
+      "smcm:mob/geomancer/idle2",
+      "smcm:mob/geomancer/idle3",
+      "smcm:mob/geomancer/idle4",
+      "smcm:mob/geomancer/idle5",
+      "smcm:mob/geomancer/idle6"
+    ]
+  },
+  "entity.geomancer.hurt": {
+    "subtitle": "subtitles.smcm.entity.geomancer.hurt",
+    "sounds": [
+      "smcm:mob/geomancer/hurt1",
+      "smcm:mob/geomancer/hurt2",
+      "smcm:mob/geomancer/hurt3",
+      "smcm:mob/geomancer/hurt4"
+    ]
+  },
+  "entity.geomancer.death": {
+    "subtitle": "subtitles.smcm.entity.geomancer.death",
+    "sounds": [
+      "smcm:mob/geomancer/death1",
+      "smcm:mob/geomancer/death2",
+      "smcm:mob/geomancer/death3"
+    ]
   }
+}
 }

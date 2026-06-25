@@ -4,14 +4,16 @@
   "package": "com.github.pigsteel.smcm.mixin",
   "compatibilityLevel": "JAVA_25",
   "mixins": [
-    "ParrotImitateMixin",
+    "EnderDragonPartMixin",
     "EntityZombieCanFreezeMixin",
+    "ParrotImitateMixin",
     "SnowballHitMixin",
+    "WitchTurnsIntoVilerWitchMixin",
     "ZombieFrostbittenConversionMixin"
   ],
   "client": [
-    "ZombieFrostbittenConversionRendererMixin",
-    "AgeableMobRendererIgnoreSunkenMixin"
+    "AgeableMobRendererIgnoreSunkenMixin",
+    "ZombieFrostbittenConversionRendererMixin"
   ],
   "server": [],
   "injectors": {

@@ -15,36 +15,6 @@ plugins {
 }
 
 /**
- * Add generated resources to the main source set.
- *
- * This is the important part for your question.
- *
- * Gradle only automatically packages resources from the main resource source set.
- * By default, that is usually src/main/resources.
- *
- * If your datagen writes to src/main/generated, and that folder contains:
- *
- *   src/main/generated/assets/...
- *   src/main/generated/data/...
- *
- * then this is correct.
- *
- * If your actual tree is:
- *
- *   src/generated/resources/assets/...
- *   src/generated/resources/data/...
- *
- * then change the path to:
- *
- *   rootProject.file("src/generated/resources")
- */
-sourceSets {
-    named("main") {
-        resources.srcDir(rootProject.file("src/generated/resources"))
-    }
-}
-
-/**
  * Configure the resource-processing task.
  *
  * processResources copies resources into the build output before the jar is made.
@@ -95,6 +65,10 @@ loom {
     // Your file is named `.classtweaker`, which is used by newer Loom/Stonecutter setups.
     // This file must be present in resources so it is packaged into the mod jar.
     accessWidenerPath = rootProject.file("src/main/resources/${property("mod.id")}.classtweaker")
+}
+
+sourceSets["main"].resources {
+    srcDir("$rootDir/src/main/generated/resources")
 }
 
 jsonlang {
@@ -243,6 +217,8 @@ dependencies {
     // Fabric API dependency.
     implementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric_api")}")
 
+    implementation("maven.modrinth:lithostitched:1.7.11-fabric-26.2")
+
     // Architectury API for Fabric.
     //
     // `api` means consumers of this module also see this dependency.
@@ -267,17 +243,7 @@ configurations.all {
 
 fabricApi {
     configureDataGeneration() {
-        // Tells Fabric datagen where to write generated files.
-        //
-        // IMPORTANT:
-        // This writes files to src/main/generated,
-        // but does not automatically make Gradle package that folder.
-        //
-        // That is why the sourceSets block above is needed.
-        outputDirectory = file("$rootDir/src/main/generated")
-
-        // Enables client-side datagen providers too.
-        // This is useful for lang, models, blockstates, item models, etc.
+        outputDirectory = file("$rootDir/src/main/generated/resources")
         client = true
     }
 }

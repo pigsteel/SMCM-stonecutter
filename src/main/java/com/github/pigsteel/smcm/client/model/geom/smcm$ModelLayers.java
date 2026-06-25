@@ -10,6 +10,7 @@ public class smcm$ModelLayers {
     public static final ModelLayerLocation RECLAIMED_BABY = register("reclaimed_baby");
     public static final ModelLayerLocation RECLAIMED_OUTER_LAYER = register("reclaimed", "outer");
     public static final ModelLayerLocation RECLAIMED_BABY_OUTER_LAYER = register("reclaimed_baby", "outer");
+    public static final ModelLayerLocation RECLAIMED_PUKE = register("reclaimed_puke");
     public static final ArmorModelSet<ModelLayerLocation> RECLAIMED_ARMOR = registerArmorSet("reclaimed");
     public static final ArmorModelSet<ModelLayerLocation> RECLAIMED_BABY_ARMOR = registerArmorSet("reclaimed_baby");
     public static final ModelLayerLocation FROSTBITTEN = register("frostbitten");
@@ -30,6 +31,16 @@ public class smcm$ModelLayers {
     public static final ModelLayerLocation NECROMANCER_CLOAK = register("necromancer_cloak");
     public static final ModelLayerLocation ZOMBIFIED_PIGLIN_BRUTE = register("zombified_piglin_brute");
     public static final ArmorModelSet<ModelLayerLocation> ZOMBIFIED_PIGLIN_BRUTE_ARMOR = registerArmorSet("zombified_piglin_brute");
+    public static final ModelLayerLocation MOUNTAINEER = register("mountaineer");
+    public static final ModelLayerLocation WINDCALLER = register("windcaller");
+    public static final ModelLayerLocation ICEOLOGER = register("iceologer");
+    public static final ModelLayerLocation GEOMANCER = register("geomancer");
+    public static final ModelLayerLocation PIGLIN_FARMER = register("piglin_farmer");
+    public static final ArmorModelSet<ModelLayerLocation> PIGLIN_FARMER_ARMOR = registerArmorSet("piglin_farmer");
+    public static final ModelLayerLocation VILER_WITCH = register("viler_witch");
+    public static final ModelLayerLocation REDSTONE_GOLEM = register("redstone_golem");
+    public static final ModelLayerLocation REDSTONE_GOLEM_GLOW = register("redstone_golem_glow");
+    public static final ModelLayerLocation REDSTONE_GOLEM_EYES = register("redstone_golem_eyes");
 
     private static ModelLayerLocation register(String name) {
         return register(name, "main");

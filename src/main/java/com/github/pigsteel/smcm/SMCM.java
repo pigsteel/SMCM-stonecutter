@@ -4,7 +4,6 @@ import com.github.pigsteel.smcm.registry.*;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.entity.EntityType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,7 +22,7 @@ public class SMCM {
         smcm$SoundEvents.register();
         smcm$EntityTypes.register();
         smcm$Items.register();
-        Attributes.register();
+        smcm$DefaultAttributes.register();
         smcm$DataComponents.load();
         LootTables.load();
         smcm$DataAttachments.load();
