@@ -107,7 +107,7 @@ public class smcm$Items {
         ResourceKey<Item> itemKey = ResourceKey.create(
                 Registries.ITEM,
                 Identifier.fromNamespaceAndPath(SMCM.MOD_ID, name)
-        );
+        );adwdwwswsassasadawsa
 
         return ITEMS.register(name, () -> itemFactory.apply(properties.setId(itemKey)));
     }
